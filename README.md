@@ -1,6 +1,7 @@
 # Bonk.io Server Selector
 
 Version 1.0.0 · Standalone userscript · MIT license
+
 Greasyfork Link: https://greasyfork.org/en/scripts/597834-bonk-io-server-selector
 
 Choose the official Bonk server used for rooms you create. Includes a map with continent outlines, saved preferences, connection testing, and automatic location lookup for discovered endpoints.
@@ -43,3 +44,10 @@ The script has no external code dependencies, custom updater, or privileged user
 ## Implementation
 
 The userscript runs at `document-start` in Bonk's game iframe. It changes only the `createserver` field in the room-list response before Bonk reads it. The selection stays fixed for that page load; changing it triggers a full reload.
+
+Major functions are documented with JSDoc in `BonkServerSelector.user.js`. `GREASYFORK_DESCRIPTION.md` contains the publishing description. Run local checks with:
+
+```sh
+node --check BonkServerSelector/BonkServerSelector.user.js
+node BonkServerSelector/test-locations.cjs
+```
